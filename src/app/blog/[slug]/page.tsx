@@ -56,7 +56,7 @@ export default async function ArticlePage({ params }: Props) {
             {section.note && <aside className="article-note"><Icon name="document" /><p>{section.note}</p></aside>}
           </section>)}
           <section id="takeaway" className="article-takeaway" aria-labelledby="takeaway-title"><div className="eyebrow">ПЕРЕД ЗАКАЗОМ</div><h2 id="takeaway-title">Коротко о главном</h2><p>{article.takeaway}</p></section>
-          {article.sources && <section className="article-sources" aria-labelledby="sources-title"><h2 id="sources-title">Источники и область применения</h2><ul>{article.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}<Icon name="outward" /><span className="sr-only"> (откроется в новой вкладке)</span></a>{source.note && <p>{source.note}</p>}</li>)}</ul></section>}
+          {article.sources && <section className="article-sources" aria-labelledby="sources-title"><h2 id="sources-title">Источники и область применения</h2><ul>{article.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel={source.url.startsWith(`${site.catalogOrigin}/`) ? 'noopener' : 'noopener noreferrer'}>{source.title}<Icon name="outward" /><span className="sr-only"> (откроется в новой вкладке)</span></a>{source.note && <p>{source.note}</p>}</li>)}</ul></section>}
           <ArticleCallout article={article} />
         </div>
       </div>
