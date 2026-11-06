@@ -2,6 +2,7 @@
 
 import { useId, useRef, useState, type FormEvent } from 'react';
 import { leadLimits, leadRecipient, utmKeys, validateLead, type LeadErrors } from '@/lib/lead-contract';
+import { FORM_GOAL, metrikaReachGoal } from '@/lib/metrika';
 import { Icon } from './icons';
 
 export function ContactForm({ sourcePath = '/', dark = false }: { sourcePath?: string; dark?: boolean }) {
@@ -45,6 +46,7 @@ export function ContactForm({ sourcePath = '/', dark = false }: { sourcePath?: s
       } else {
         form.current?.reset();
         setResult({ ok: true, message: body.message, id: body.id });
+        metrikaReachGoal(FORM_GOAL);
         requestAnimationFrame(() => status.current?.focus());
       }
     } catch {

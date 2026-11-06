@@ -3,6 +3,7 @@ import '@fontsource-variable/manrope';
 import '@fontsource-variable/golos-text';
 import { identity, site } from '@/lib/site';
 import { BrandPalette } from '@/components/brand-palette';
+import { Metrika } from '@/components/metrika';
 import './globals.css';
 import '@/components/contact-form.css';
 
@@ -21,5 +22,5 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#151D25' };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="ru"><body><BrandPalette /><a className="skip-link" href="#main">Перейти к содержимому</a>{children}</body></html>;
+  return <html lang="ru"><body><BrandPalette /><a className="skip-link" href="#main">Перейти к содержимому</a>{children}<Metrika /></body></html>;
 }
