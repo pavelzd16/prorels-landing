@@ -164,7 +164,7 @@ export default function Home() {
                 <a
                   className="product-card"
                   key={category.slug}
-                  href={`${catalogUrl}?category=${category.slug}`}
+                  href={`${catalogUrl}/${category.slug}`}
                 >
                   <div className="product-image">
                     <Image

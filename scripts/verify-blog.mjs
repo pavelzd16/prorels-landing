@@ -65,6 +65,9 @@ for (const article of [undefined, ...articles]) {
     assert.match(pageResponse.headers.get('x-robots-tag'), /noindex/);
   }
   if (article) {
+    const catalogPath = article.catalogCategory ? `/catalog/${article.catalogCategory}` : '/catalog';
+    const catalogLink = page.match(/<div class="article-cta-actions">\s*<a[^>]*href="([^"]+)"/)?.[1];
+    assert.equal(catalogLink, `https://prorelsa.ru${catalogPath}`, 'article CTA opens its catalog destination directly');
     assert.equal(pageMeta('description'), article.description);
     assert.ok(page.includes(article.intro), 'article body is in server HTML');
     assert.ok(page.includes(`dateTime="${article.publishedAt}"`));
