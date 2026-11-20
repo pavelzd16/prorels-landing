@@ -27,7 +27,8 @@ for (const article of [undefined, ...articles]) {
   const page = await pageResponse.text();
   const pageMeta = (name, attr = 'name') => page.match(new RegExp(`<meta[^>]*${attr}="${name}"[^>]*content="([^"]*)"`))?.[1];
   const title = page.match(/<title>(.*?)<\/title>/)?.[1];
-  assert.ok(title?.includes('ПроРельс'), path);
+  if (article?.seoTitle) assert.equal(title, article.seoTitle, path);
+  else assert.ok(title?.includes('ПроРельс'), path);
   assert.ok(!pageTitles.has(title), 'unique page titles');
   pageTitles.add(title);
   assert.equal((page.match(/<h1[\s>]/g) || []).length, 1, path);
