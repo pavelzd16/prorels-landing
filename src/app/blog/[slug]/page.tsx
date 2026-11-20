@@ -33,7 +33,7 @@ export default async function ArticlePage({ params }: Props) {
             <div className="article-meta"><span className="article-category">{article.category}</span><span><Icon name="clock" />{readingMinutes(article)} мин чтения</span><time dateTime={article.publishedAt}>{formatArticleDate(article.publishedAt)}</time></div>
             <h1>{article.title}</h1>
             <p>{article.description}</p>
-            <div className="article-byline">Материал <a href={`${site.catalogOrigin}/about`}>ПроРельс</a>{article.updatedAt !== article.publishedAt && <span> · Обновлено <time dateTime={article.updatedAt}>{formatArticleDate(article.updatedAt)}</time></span>}</div>
+            <div className="article-byline">Материал <a href={`${site.catalogOrigin}/about`}>{article.bylineName ?? site.name}</a>{article.updatedAt !== article.publishedAt && <span> · Обновлено <time dateTime={article.updatedAt}>{formatArticleDate(article.updatedAt)}</time></span>}</div>
           </div>
         </div>
       </header>
