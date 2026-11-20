@@ -7,7 +7,7 @@ export const blogDescription = 'Практические материалы о �
 
 export function blogMetadata(article?: Article): Metadata {
   const path = article ? `/blog/${article.slug}` : '/blog';
-  const title = article ? `${article.title} — ${site.name}` : blogTitle;
+  const title = article?.seoTitle ?? (article ? `${article.title} — ${site.name}` : blogTitle);
   const description = article?.description ?? blogDescription;
   const image = { url: `${path}/opengraph-image`, width: 1200, height: 630, alt: article?.title ?? 'Блог ПроРельс — полезные материалы для закупки ВСП' };
   return {
