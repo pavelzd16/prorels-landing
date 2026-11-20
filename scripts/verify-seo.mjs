@@ -35,7 +35,7 @@ for (const slug of [
   "stykovye-zhd-nakladki",
 ]) {
   assert.ok(
-    html.includes(`href="https://prorelsa.ru/catalog?category=${slug}"`),
+    html.includes(`href="https://prorelsa.ru/catalog/${slug}"`),
     `external category: ${slug}`,
   );
 }

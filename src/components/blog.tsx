@@ -47,7 +47,7 @@ export function ArticleCallout({ article }: { article: Article }) {
     <p>{article.callout?.text ?? 'Пришлите перечень материалов, количество и город доставки. Уточним наличие и подготовим предложение.'}</p>
     <ContactForm sourcePath={`/blog/${article.slug}`} dark />
     <div className="article-cta-actions">
-      <a className="text-link light-link" href={article.catalogCategory ? `${catalogUrl}?category=${article.catalogCategory}` : catalogUrl}>Смотреть каталог<Icon name="outward" /></a>
+      <a className="text-link light-link" href={article.catalogCategory ? `${catalogUrl}/${article.catalogCategory}` : catalogUrl}>Смотреть каталог<Icon name="outward" /></a>
     </div>
   </section>;
 }
