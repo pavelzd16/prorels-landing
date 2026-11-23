@@ -53,7 +53,7 @@ export function Header({ navigation, phone, phoneHref, email, catalogUrl }: Prop
         </nav>
         <div className="header-contact">
           <a className="header-phone" href={phoneHref}>{phone}</a>
-          <a className="header-email" href={emailHref}>{email}</a>
+          <a className="header-email" href={emailHref}>Почта: {email}</a>
           <span>Отдел продаж · Пн–Пт, 8:00–17:00</span>
         </div>
         <a className="header-call" href={phoneHref} aria-label={`Позвонить: ${phone}`}><Icon name="phone" /></a>
@@ -66,7 +66,7 @@ export function Header({ navigation, phone, phoneHref, email, catalogUrl }: Prop
           {navigation.map(item => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}<Icon name="arrow" /></Link>)}
           <a className="mobile-catalog" href={catalogUrl}>Смотреть каталог<Icon name="outward" /></a>
           <a href={phoneHref}>{phone}<Icon name="phone" /></a>
-          <a href={emailHref}>{email}<Icon name="mail" /></a>
+          <a href={emailHref}>Почта: {email}<Icon name="mail" /></a>
         </div>
       </nav>
     </header>
