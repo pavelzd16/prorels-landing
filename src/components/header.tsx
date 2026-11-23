@@ -9,10 +9,12 @@ type Props = {
   navigation: { href: string; label: string }[];
   phone: string;
   phoneHref: string;
+  email: string;
   catalogUrl: string;
 };
 
-export function Header({ navigation, phone, phoneHref, catalogUrl }: Props) {
+export function Header({ navigation, phone, phoneHref, email, catalogUrl }: Props) {
+  const emailHref = `mailto:${email}`;
   const [open, setOpen] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
   const header = useRef<HTMLElement>(null);
@@ -50,7 +52,8 @@ export function Header({ navigation, phone, phoneHref, catalogUrl }: Props) {
           {navigation.map(item => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>)}
         </nav>
         <div className="header-contact">
-          <a href={phoneHref}>{phone}</a>
+          <a className="header-phone" href={phoneHref}>{phone}</a>
+          <a className="header-email" href={emailHref}>{email}</a>
           <span>Отдел продаж · Пн–Пт, 8:00–17:00</span>
         </div>
         <a className="header-call" href={phoneHref} aria-label={`Позвонить: ${phone}`}><Icon name="phone" /></a>
@@ -63,6 +66,7 @@ export function Header({ navigation, phone, phoneHref, catalogUrl }: Props) {
           {navigation.map(item => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}<Icon name="arrow" /></Link>)}
           <a className="mobile-catalog" href={catalogUrl}>Смотреть каталог<Icon name="outward" /></a>
           <a href={phoneHref}>{phone}<Icon name="phone" /></a>
+          <a href={emailHref}>{email}<Icon name="mail" /></a>
         </div>
       </nav>
     </header>
