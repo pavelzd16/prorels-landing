@@ -258,11 +258,21 @@ summary:focus-visible {
   line-height: 1.5;
   flex-shrink: 0;
 }
-.header-contact a {
+.header-phone {
   display: block;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.02em;
+}
+.header-email {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.header-email:hover {
+  color: var(--orange-text);
 }
 .header-contact span {
   display: block;
@@ -1024,7 +1034,7 @@ summary:focus-visible {
   .header-contact {
     padding-left: 20px;
   }
-  .header-contact a {
+  .header-phone {
     font-size: 15px;
   }
   .hero {

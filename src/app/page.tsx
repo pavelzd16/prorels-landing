@@ -60,6 +60,7 @@ export default function Home() {
         navigation={navigation}
         phone={site.phone}
         phoneHref={site.phoneHref}
+        email={site.email}
         catalogUrl={catalogUrl}
       />
       <main id="main">

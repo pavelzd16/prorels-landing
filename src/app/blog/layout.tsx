@@ -5,7 +5,13 @@ import './blog.css';
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return <>
-    <Header navigation={navigation} phone={site.phone} phoneHref={site.phoneHref} catalogUrl={catalogUrl} />
+    <Header
+      navigation={navigation}
+      phone={site.phone}
+      phoneHref={site.phoneHref}
+      email={site.email}
+      catalogUrl={catalogUrl}
+    />
     {children}
     <Footer />
   </>;
